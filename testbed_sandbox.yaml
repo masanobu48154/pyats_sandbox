@@ -201,6 +201,12 @@ devices:
           netconf:
             username: cisco
             password: cisco
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+      enable:
+        password: cisco
   dist-sw02:
     os: nxos
     platform: n9k
@@ -223,6 +229,12 @@ devices:
           netconf:
             username: cisco
             password: cisco
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+      enable:
+        password: cisco
   inside-host01:
     os: linux
     type: server
@@ -256,6 +268,12 @@ devices:
           netconf:
             username: cisco
             password: cisco
+    credentials:
+      default:
+        password: cisco
+        username: cisco
+      enable:
+        password: cisco
   inside-host02:
     os: linux
     type: server
