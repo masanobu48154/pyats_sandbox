@@ -109,19 +109,6 @@ nodes:
             echo "UseDNS no" >> /etc/ssh/sshd_config
             service ssh restart
             service sshd restart
-            echo "network:" >> /etc/netplan/99-netcfg.yaml
-            echo "    version: 2" >> /etc/netplan/99-netcfg.yaml
-            echo "    ethernets:" >> /etc/netplan/99-netcfg.yaml
-            echo "        ens3:" >> /etc/netplan/99-netcfg.yaml
-            echo "            addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "            - 172.31.0.11/24" >> /etc/netplan/99-netcfg.yaml
-            echo "        ens9:" >> /etc/netplan/99-netcfg.yaml
-            echo "            addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "            - 172.16.1.82/24" >> /etc/netplan/99-netcfg.yaml
-            echo "            gateway4: 172.16.1.1" >> /etc/netplan/99-netcfg.yaml
-            echo "            nameservers:" >> /etc/netplan/99-netcfg.yaml
-            echo "                addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "                - 8.8.8.8" >> /etc/netplan/99-netcfg.yaml
             netplan apply
             apt-get update
             apt-get install -y net-tools
@@ -129,6 +116,23 @@ nodes:
             route add -net 172.16.0.0/16 gw 172.31.0.1 dev ens3
             route add -net 172.31.0.0/16 gw 172.31.0.1 dev ens3
             exit 0
+        - path: /etc/netplan/99-netcfg.yaml
+          owner: root:root
+          permissions: '0755'
+          content: |-
+            network:
+                version: 2
+                ethernets:
+                    ens3:
+                        addresses:
+                        - 172.31.0.11/24
+                    ens9:
+                        addresses:
+                        - 172.16.1.82/24
+                        gateway4: 172.16.1.1
+                        nameservers:
+                            addresses:
+                            - 8.8.8.8
     image_definition: ubuntu-20-04
     tags: []
     interfaces:
@@ -1942,19 +1946,6 @@ nodes:
             echo "UseDNS no" >> /etc/ssh/sshd_config
             service ssh restart
             service sshd restart
-            echo "network:" >> /etc/netplan/99-netcfg.yaml
-            echo "    version: 2" >> /etc/netplan/99-netcfg.yaml
-            echo "    ethernets:" >> /etc/netplan/99-netcfg.yaml
-            echo "        ens3:" >> /etc/netplan/99-netcfg.yaml
-            echo "            addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "            - 172.16.101.11/24" >> /etc/netplan/99-netcfg.yaml
-            echo "        ens9:" >> /etc/netplan/99-netcfg.yaml
-            echo "            addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "            - 172.16.1.79/24" >> /etc/netplan/99-netcfg.yaml
-            echo "            gateway4: 172.16.1.1" >> /etc/netplan/99-netcfg.yaml
-            echo "            nameservers:" >> /etc/netplan/99-netcfg.yaml
-            echo "                addresses:" >> /etc/netplan/99-netcfg.yaml
-            echo "                - 8.8.8.8" >> /etc/netplan/99-netcfg.yaml
             netplan apply
             apt-get update
             apt-get install -y net-tools
@@ -1962,6 +1953,23 @@ nodes:
             route add -net 172.16.0.0/16 gw 172.16.101.1 dev ens3
             route add -net 172.31.0.0/16 gw 172.16.101.1 dev ens3
             exit 0
+        - path: /etc/netplan/99-netcfg.yaml
+          owner: root:root
+          permissions: '0755'
+          content: |-
+            network:
+                version: 2
+                ethernets:
+                    ens3:
+                        addresses:
+                        - 172.16.101.11/24
+                    ens9:
+                        addresses:
+                        - 172.16.1.79/24
+                        gateway4: 172.16.1.1
+                        nameservers:
+                            addresses:
+                            - 8.8.8.8
     image_definition: ubuntu-20-04
     tags: []
     interfaces:
