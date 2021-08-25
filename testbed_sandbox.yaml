@@ -1,9 +1,9 @@
 testbed:
   name: 'Multi Platform Network'
   credentials:
-      default:
-        username: cisco
-        password: cisco
+    default:
+      username: cisco
+      password: cisco
 devices:
   internet-rtr01:
     os: iosxe
