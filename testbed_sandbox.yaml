@@ -238,9 +238,6 @@ devices:
   inside-host01:
     os: linux
     type: server
-    credentials:
-      username: cisco
-      passwords: cisco
     connections:
       cli:
         ip: 172.16.1.79
