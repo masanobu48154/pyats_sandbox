@@ -234,7 +234,7 @@ devices:
     connections:
       cli:
         ip: 172.16.1.79
-        protocol: telnet
+        protocol: ssh
   edge-sw01:
     os: ios
     platform: iosv
@@ -268,7 +268,7 @@ devices:
     connections:
       cli:
         ip: 172.16.1.80
-        protocol: telnet
+        protocol: ssh
 topology:
   internet-rtr01:
     interfaces:
