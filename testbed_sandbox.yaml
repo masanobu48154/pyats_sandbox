@@ -36,9 +36,6 @@ devices:
   internet-host01:
     os: linux
     type: server
-    credentials:
-      username: cisco
-      passwords: cisco
     connections:
       cli:
         ip: 172.16.1.82
@@ -279,10 +276,6 @@ devices:
   inside-host02:
     os: linux
     type: server
-    tacacs:
-      username: cisco
-    passwords:
-      linux: cisco
     connections:
       cli:
         ip: 172.16.1.80
