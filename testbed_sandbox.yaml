@@ -10,7 +10,6 @@ devices:
     platform: csr1000v
     alias: uut
     type: router
-    series: csr1000v
     connections:
       cli:
         ip: 172.16.1.81
@@ -72,7 +71,6 @@ devices:
     platform: iosxrv
     alias: core-rtr01
     type: router
-    series: iosxrv
     connections:
       cli:
         ip: 172.16.1.73
@@ -100,7 +98,6 @@ devices:
     platform: iosxrv
     alias: core-rtr02
     type: router
-    series: iosxrv
     connections:
       cli:
         ip: 172.16.1.74
@@ -128,7 +125,6 @@ devices:
     platform: csr1000v
     alias: dist-rtr01
     type: router
-    series: csr1000v
     connections:
       cli:
         ip: 172.16.1.75
@@ -156,7 +152,6 @@ devices:
     platform: csr1000v
     alias: dist-rtr02
     type: router
-    series: csr1000v
     connections:
       cli:
         ip: 172.16.1.76
@@ -184,7 +179,6 @@ devices:
     platform: n9k
     alias: dist-sw01
     type: switch
-    series: n9k
     connections:
       cli:
         ip: 172.16.1.77
@@ -212,7 +206,6 @@ devices:
     platform: n9k
     alias: dist-sw02
     type: switch
-    series: n9k
     connections:
       cli:
         ip: 172.16.1.78
@@ -247,7 +240,6 @@ devices:
     platform: iosv
     alias: edge-sw01
     type: switch
-    series: iosv
     connections:
       cli:
         ip: 172.16.1.72
