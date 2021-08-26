@@ -138,35 +138,35 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: ens3
+        label: ens2
         type: physical
       - id: i1
         slot: 1
-        label: ens4
+        label: ens3
         type: physical
       - id: i2
         slot: 2
-        label: ens5
+        label: ens4
         type: physical
       - id: i3
         slot: 3
-        label: ens6
+        label: ens5
         type: physical
       - id: i4
         slot: 4
-        label: ens7
+        label: ens6
         type: physical
       - id: i5
         slot: 5
-        label: ens8
+        label: ens7
         type: physical
       - id: i6
         slot: 6
-        label: ens9
+        label: ens8
         type: physical
       - id: i7
         slot: 7
-        label: ens10
+        label: ens9
         type: physical
   - id: n3
     label: internet-rtr01
@@ -1531,20 +1531,19 @@ nodes:
         hsrp 10
           ip 172.16.105.1
 
-      interface port-channel1
-        switchport mode trunk
-        spanning-tree port type network
-        vpc peer-link
-
       interface Ethernet1/1
         description VPC Peer Link
-        switchport mode trunk
-        channel-group 1 mode active
+        no shutdown
 
       interface Ethernet1/2
         description VPC Peer Link
+        no shutdown
+
+      interface port-channel1
+        switchport
         switchport mode trunk
-        channel-group 1 mode active
+        spanning-tree port type network
+        vpc peer-link
 
       interface Ethernet1/3
         description L3 link to dist-rtr01
@@ -1588,8 +1587,10 @@ nodes:
 
       interface Ethernet1/11
         description Link to inside-host01
+        switchport
         switchport access vlan 101
         spanning-tree port type edge
+        no shutdown
 
       interface mgmt0
         description to port8.sandbox-backend
@@ -1782,20 +1783,19 @@ nodes:
         hsrp 10
           ip 172.16.105.1
 
-      interface port-channel1
-        switchport mode trunk
-        spanning-tree port type network
-        vpc peer-link
-
       interface Ethernet1/1
         description VPC Peer Link
-        switchport mode trunk
-        channel-group 1 mode active
+        no shutdown
 
       interface Ethernet1/2
         description VPC Peer Link
+        no shutdown
+
+      interface port-channel1
+        switchport
         switchport mode trunk
-        channel-group 1 mode active
+        spanning-tree port type network
+        vpc peer-link
 
       interface Ethernet1/3
         description L3 link to dist-rtr01
@@ -1839,8 +1839,10 @@ nodes:
 
       interface Ethernet1/11
         description Link to inside-host02
+        switchport
         switchport access vlan 102
         spanning-tree port type edge
+        no shutdown
 
       interface mgmt0
         description to port9.sandbox-backend
@@ -1975,35 +1977,35 @@ nodes:
     interfaces:
       - id: i0
         slot: 0
-        label: ens3
+        label: ens2
         type: physical
       - id: i1
         slot: 1
-        label: ens4
+        label: ens3
         type: physical
       - id: i2
         slot: 2
-        label: ens5
+        label: ens4
         type: physical
       - id: i3
         slot: 3
-        label: ens6
+        label: ens5
         type: physical
       - id: i4
         slot: 4
-        label: ens7
+        label: ens6
         type: physical
       - id: i5
         slot: 5
-        label: ens8
+        label: ens7
         type: physical
       - id: i6
         slot: 6
-        label: ens9
+        label: ens8
         type: physical
       - id: i7
         slot: 7
-        label: ens10
+        label: ens9
         type: physical
   - id: n13
     label: inside-host02
