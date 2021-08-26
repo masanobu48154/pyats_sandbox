@@ -11,6 +11,8 @@ devices:
     alias: uut
     type: router
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.81
         protocol: telnet
@@ -36,6 +38,8 @@ devices:
     os: linux
     type: server
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.82
         protocol: ssh
@@ -45,6 +49,8 @@ devices:
     alias: edge-firewall01
     type: firewall
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.71
         protocol: telnet
@@ -72,6 +78,8 @@ devices:
     alias: core-rtr01
     type: router
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.73
         protocol: telnet
@@ -99,6 +107,8 @@ devices:
     alias: core-rtr02
     type: router
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.74
         protocol: telnet
@@ -126,6 +136,8 @@ devices:
     alias: dist-rtr01
     type: router
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.75
         protocol: telnet
@@ -153,6 +165,8 @@ devices:
     alias: dist-rtr02
     type: router
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.76
         protocol: telnet
@@ -180,6 +194,8 @@ devices:
     alias: dist-sw01
     type: switch
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.77
         protocol: telnet
@@ -207,6 +223,8 @@ devices:
     alias: dist-sw02
     type: switch
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.78
         protocol: telnet
@@ -232,6 +250,8 @@ devices:
     os: linux
     type: server
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.79
         protocol: ssh
@@ -241,6 +261,8 @@ devices:
     alias: edge-sw01
     type: switch
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.72
         protocol: telnet
@@ -266,6 +288,8 @@ devices:
     os: linux
     type: server
     connections:
+      defaults:
+        via: cli
       cli:
         ip: 172.16.1.80
         protocol: ssh
