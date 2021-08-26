@@ -30,8 +30,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   internet-host01:
@@ -43,6 +43,10 @@ devices:
       cli:
         ip: 172.16.1.82
         protocol: ssh
+    credentials:
+      default:
+        username: cisco
+        password: cisco
   edge-firewall01:
     os: asa
     platform: asav
@@ -68,8 +72,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   core-rtr01:
@@ -97,8 +101,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   core-rtr02:
@@ -126,8 +130,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   dist-rtr01:
@@ -155,8 +159,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   dist-rtr02:
@@ -184,8 +188,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   dist-sw01:
@@ -213,8 +217,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   dist-sw02:
@@ -242,8 +246,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   inside-host01:
@@ -255,6 +259,10 @@ devices:
       cli:
         ip: 172.16.1.79
         protocol: ssh
+      credentials:
+        default:
+          username: cisco
+          password: cisco
   edge-sw01:
     os: ios
     platform: iosv
@@ -280,8 +288,8 @@ devices:
             password: cisco
     credentials:
       default:
-        password: cisco
         username: cisco
+        password: cisco
       enable:
         password: cisco
   inside-host02:
@@ -293,6 +301,10 @@ devices:
       cli:
         ip: 172.16.1.80
         protocol: ssh
+    credentials:
+      default:
+        username: cisco
+        password: cisco
 topology:
   internet-rtr01:
     interfaces:
