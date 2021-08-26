@@ -36,6 +36,7 @@ devices:
         password: cisco
   internet-host01:
     os: linux
+    alias: ub01
     type: server
     connections:
       defaults:
@@ -50,7 +51,7 @@ devices:
   edge-firewall01:
     os: asa
     platform: asav
-    alias: edge-firewall01
+    alias: asa
     type: firewall
     connections:
       defaults:
@@ -79,7 +80,7 @@ devices:
   core-rtr01:
     os: iosxr
     platform: iosxrv
-    alias: core-rtr01
+    alias: xr01
     type: router
     connections:
       defaults:
@@ -108,7 +109,7 @@ devices:
   core-rtr02:
     os: iosxr
     platform: iosxrv
-    alias: core-rtr02
+    alias: xr02
     type: router
     connections:
       defaults:
@@ -137,7 +138,7 @@ devices:
   dist-rtr01:
     os: iosxe
     platform: csr1000v
-    alias: dist-rtr01
+    alias: xe01
     type: router
     connections:
       defaults:
@@ -166,7 +167,7 @@ devices:
   dist-rtr02:
     os: iosxe
     platform: csr1000v
-    alias: dist-rtr02
+    alias: xe02
     type: router
     connections:
       defaults:
@@ -195,7 +196,7 @@ devices:
   dist-sw01:
     os: nxos
     platform: n9k
-    alias: dist-sw01
+    alias: nx01
     type: switch
     connections:
       defaults:
@@ -224,7 +225,7 @@ devices:
   dist-sw02:
     os: nxos
     platform: n9k
-    alias: dist-sw02
+    alias: nx02
     type: switch
     connections:
       defaults:
@@ -252,6 +253,7 @@ devices:
         password: cisco
   inside-host01:
     os: linux
+    alias: ub02
     type: server
     connections:
       defaults:
@@ -266,7 +268,7 @@ devices:
   edge-sw01:
     os: ios
     platform: iosv
-    alias: edge-sw01
+    alias: sw
     type: switch
     connections:
       defaults:
@@ -294,6 +296,7 @@ devices:
         password: cisco
   inside-host02:
     os: linux
+    alias: desktop
     type: server
     connections:
       defaults:
