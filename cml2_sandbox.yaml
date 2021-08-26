@@ -1,7 +1,7 @@
 lab:
   description: ''
   notes: ''
-  timestamp: 1629784617.2228308
+  timestamp: 1629947717.7741754
   title: Multi Platform Network
   version: 0.0.4
 nodes:
@@ -133,40 +133,40 @@ nodes:
                         nameservers:
                             addresses:
                             - 8.8.8.8
-    image_definition: ubuntu-20-04
+    image_definition: ''
     tags: []
     interfaces:
       - id: i0
         slot: 0
-        label: ens2
+        label: ens3
         type: physical
       - id: i1
         slot: 1
-        label: ens3
+        label: ens4
         type: physical
       - id: i2
         slot: 2
-        label: ens4
+        label: ens5
         type: physical
       - id: i3
         slot: 3
-        label: ens5
+        label: ens6
         type: physical
       - id: i4
         slot: 4
-        label: ens6
+        label: ens7
         type: physical
       - id: i5
         slot: 5
-        label: ens7
+        label: ens8
         type: physical
       - id: i6
         slot: 6
-        label: ens8
+        label: ens9
         type: physical
       - id: i7
         slot: 7
-        label: ens9
+        label: ens10
         type: physical
   - id: n3
     label: internet-rtr01
@@ -1972,40 +1972,40 @@ nodes:
                         nameservers:
                             addresses:
                             - 8.8.8.8
-    image_definition: ubuntu-20-04
+    image_definition: ''
     tags: []
     interfaces:
       - id: i0
         slot: 0
-        label: ens2
+        label: ens3
         type: physical
       - id: i1
         slot: 1
-        label: ens3
+        label: ens4
         type: physical
       - id: i2
         slot: 2
-        label: ens4
+        label: ens5
         type: physical
       - id: i3
         slot: 3
-        label: ens5
+        label: ens6
         type: physical
       - id: i4
         slot: 4
-        label: ens6
+        label: ens7
         type: physical
       - id: i5
         slot: 5
-        label: ens7
+        label: ens8
         type: physical
       - id: i6
         slot: 6
-        label: ens8
+        label: ens9
         type: physical
       - id: i7
         slot: 7
-        label: ens9
+        label: ens10
         type: physical
   - id: n13
     label: inside-host02
@@ -2045,11 +2045,6 @@ links:
     n1: n2
     i2: i10
     n2: n1
-  - id: l2
-    i1: i0
-    n1: n2
-    i2: i3
-    n2: n3
   - id: l3
     i1: i1
     n1: n3
@@ -2175,11 +2170,6 @@ links:
     n1: n11
     i2: i9
     n2: n1
-  - id: l28
-    i1: i0
-    n1: n12
-    i2: i12
-    n2: n10
   - id: l29
     i1: i7
     n1: n12
@@ -2195,3 +2185,13 @@ links:
     n1: n13
     i2: i12
     n2: n1
+  - id: l28
+    i1: i12
+    n1: n10
+    i2: i1
+    n2: n12
+  - id: l2
+    i1: i1
+    n1: n2
+    i2: i3
+    n2: n3
