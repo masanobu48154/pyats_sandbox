@@ -2,6 +2,7 @@
 
 from genie import testbed
 import pprint
+import time
 from logging import Formatter, getLogger, StreamHandler, DEBUG
 
 logger = getLogger("genie_apis")
@@ -52,6 +53,7 @@ logger.debug("Successfully unshuted xe02s' GigabitEthernet2")
 xe02.api.unshut_interface(interface='GigabitEthernet3')
 logger.debug("Successfully unshuted xe02s' GigabitEthernet3")
 
+rime.sleep(20)
 xe01_after_unshut_status = xe01.api.get_interfaces_status()
 xe02_after_unshut_status = xe02.api.get_interfaces_status()
 
