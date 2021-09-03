@@ -3,52 +3,69 @@
 from genie import testbed
 import pprint
 import time
-from logging import Formatter, getLogger, StreamHandler, DEBUG
 
-logger = getLogger("genie_apis")
-logger.setLevel(DEBUG)
-handler = StreamHandler()
-handler.setLevel(DEBUG)
-fmt = Formatter(
-    "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    "%Y-%m-%dT%H:%M:%S"
-)
-handler.setFormatter(fmt)
-logger.addHandler(handler)
-logger.propagate = False
+
+def get_interfaces_status(device):
+    """Get up/down status of all interfaces
+    Args:
+        device (obj): device object
+    """
+
+    try:
+        out = device.parse('show ip interface brief')
+    except SchemaEmptyParserError as e:
+        log.error('No interface information found')
+        return None
+
+    # {'interface': {'GigabitEthernet1': {'interface_is_ok': 'YES',
+    #           'ip_address': '172.16.1.210',
+    #           'method': 'DHCP',
+    #           'protocol': 'up',
+    #           'status': 'up'},
+
+    return {key: val.get('status') for key, val in out.get('interface', {}).items()}
+
 
 testbed = testbed.load('testbed.yaml')
-
 xe01 = testbed.devices['xe01']
 xe02 = testbed.devices['xe02']
 
+# unicon接続
 xe01.connect()
-logger.debug("Successfully connected xe01!!")
 xe02.connect()
-logger.debug("Successfully connected xe01!!")
 
-xe01_after_shut_status = xe01.api.get_interfaces_status()
-xe02_after_shut_status = xe02.api.get_interfaces_status()
+# インターフェースのステータスを事前取得
+xe01_after_shut_status = get_interfaces_status(xe01)
+xe02_after_shut_status = get_interfaces_status(xe02)
 
+# 事前取得したステータスを表示
+print('------xe01 interface status before unshutdown------')
 pprint.pprint(xe01_after_shut_status)
+print('---------------------------------------------------')
+print('------xe02 interface status before unshutdown------')
 pprint.pprint(xe02_after_shut_status)
+print('---------------------------------------------------')
 
+# Apisを使ってxe01、xe02のインターフェースをunshutdown
 xe01.api.unshut_interface(interface='GigabitEthernet4')
-logger.debug("Successfully unshuted xe01s' GigabitEthernet4")
 xe02.api.unshut_interface(interface='GigabitEthernet2')
-logger.debug("Successfully unshuted xe02s' GigabitEthernet2")
 xe02.api.unshut_interface(interface='GigabitEthernet3')
-logger.debug("Successfully unshuted xe02s' GigabitEthernet3")
 
-time.sleep(10)
+# ステータスがアップデートされるまでスリープ
+time.sleep(20)
 
-xe01_after_unshut_status = xe01.api.get_interfaces_status()
-xe02_after_unshut_status = xe02.api.get_interfaces_status()
+# インターフェースのステータスを事後取得
+xe01_after_unshut_status = get_interfaces_status(xe01)
+xe02_after_unshut_status = get_interfaces_status(xe02)
 
+# 事後取得したステータスを表示
+print('------xe01 interface status after unshutdown-------')
 pprint.pprint(xe01_after_unshut_status)
+print('---------------------------------------------------')
+print('------xe02 interface status after unshutdown-------')
 pprint.pprint(xe02_after_unshut_status)
+print('---------------------------------------------------')
 
+# unicon切断
 xe01.disconnect()
-logger.debug("Successfully disconnected xe01!!")
 xe02.disconnect()
-logger.debug("Successfully disconnected xe02!!")
