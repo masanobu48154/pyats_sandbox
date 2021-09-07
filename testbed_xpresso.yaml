@@ -8,7 +8,7 @@ devices:
   internet-rtr01:
     os: iosxe
     platform: csr1000v
-    alias: uut
+    alias: xe00
     type: router
     connections:
       defaults:
@@ -94,7 +94,7 @@ devices:
   dist-rtr01:
     os: iosxe
     platform: csr1000v
-    alias: xe01
+    alias: uut
     type: router
     connections:
       defaults:
