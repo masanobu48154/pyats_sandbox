@@ -1,0 +1,13 @@
+devices:
+    uut:
+        context: cli
+        pool_size: 2
+        mapping:
+        # Associate cli with connection vty
+            cli: cli
+    xe02:
+        context: cli
+        pool_size: 2
+        mapping:
+         # Associate cli with connection vty
+            cli: cli
