@@ -1,0 +1,69 @@
+vrf A
+ address-family ipv4 unicast
+  import route-target
+   65432:111
+  !
+  export route-target
+   65432:111
+  !
+ !
+!
+vrf B
+ address-family ipv4 unicast
+  import route-target
+   65432:222
+  !
+  export route-target
+   65432:222
+  !
+ !
+!
+interface loopback0
+ ipv4 address 172.16.252.102 255.255.255.255
+ no shutdown
+!
+interface Loopback111
+ vrf A
+ ipv4 address 1.1.1.2 255.255.255.255
+ no shutdown
+!
+interface Loopback222
+ vrf B
+ ipv4 address 2.2.2.2 255.255.255.255
+ no shutdown
+!
+router bgp 65432
+ bgp router-id 172.16.252.102
+ bgp log neighbor changes detail
+ address-family vpnv4 unicast
+ !
+ neighbor 172.16.252.101
+  remote-as 65432
+  update-source Loopback0
+  address-family vpnv4 unicast
+  !
+ !
+ vrf A
+  rd 65432:111
+  address-family ipv4 unicast
+   !
+   redistribute connected
+  !
+ !
+ vrf B
+  rd 65432:222
+  address-family ipv4 unicast
+   !
+   redistribute connected
+  !
+ !
+!
+segment-routing
+ global-block 16000 18000
+!
+router ospf 1
+ segment-routing mpls
+ area 0
+  segment-routing mpls
+  interface Loopback0
+   prefix-sid index 222

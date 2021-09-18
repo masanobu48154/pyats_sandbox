@@ -1,0 +1,21 @@
+extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger)}"
+
+TriggerUnconfigConfigBgp:
+    groups: ['unconfig-config', 'bgp', 'L3']
+    method: 'checkpoint'
+    timeout:
+       max_time: 400
+       interval: 10
+    tgn_timeout: 300
+    tgn_delay: 10
+    devices: ['xe01', 'xe02']
+
+TriggerModifyLoopbackInterfaceIp:
+    groups: ['modify', 'interface', 'L3']
+    method: 'checkpoint'
+    timeout:
+       max_time: 180
+       interval: 10
+    tgn_timeout: 300
+    tgn_delay: 10
+    devices: ['xe01', 'xe02']

@@ -1,0 +1,20 @@
+platform:
+    source:
+        pkg: genie.libs.ops
+        class: platform.platform.Platform
+    devices: ['xe01', 'xe02']
+    exclude: []
+
+bgp:
+    source:
+        pkg: genie.libs.ops
+        class: bgp.bgp.Bgp
+    devices: ['xe01', 'xe02']
+    exclude: []
+
+interface:
+    source:
+        pkg: genie.libs.ops
+        class: interface.interface.Interface
+    devices: ['xe01', 'xe02']
+    exclude: []
